@@ -16,6 +16,4 @@ class MyApp extends StatelessWidget {
       home: MyHomePage(),
     );
   }
-}
-
-
+} //end
