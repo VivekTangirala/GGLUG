@@ -21,20 +21,15 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 
-  SafeArea _body() {
-    return SafeArea(
-      child: Container(
-        child: LoginPage(),
-      ),
-    );
+  Widget _body() {
+    return LoginPage();
   }
 
   AppBar _appBar() {
     return AppBar(
       leading: IconButton(
         icon: Icon(Icons.notifications),
-        onPressed: () {
-        },
+        onPressed: () {},
       ),
       title: Center(
         child: Text("GITAM-GLUG"),
