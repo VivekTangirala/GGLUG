@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:gglug/Homepage.dart';
+import 'package:gglug/Loginpage/Login.dart';
 
 void main() {
   runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
+  var _login=false;
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -13,7 +15,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: MyHomePage(),
+      home:_login==true? MyHomePage():LoginPage()
     );
   }
 }

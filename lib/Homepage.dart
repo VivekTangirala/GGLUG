@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:gglug/Loginpage/Login.dart';
+
+import 'Loginpage/Login.dart';
 
 class MyHomePage extends StatefulWidget {
   @override
@@ -31,12 +32,14 @@ class _MyHomePageState extends State<MyHomePage> {
 
   AppBar _appBar() {
     return AppBar(
+     // elevation: 0.0,
       leading: IconButton(
-        icon: Icon(Icons.notifications),
+        icon: Icon(Icons.notifications,),
         onPressed: () {
         },
       ),
-      title: Center(
+      title: 
+      Center(
         child: Text("GITAM-GLUG"),
       ),
       actions: [
