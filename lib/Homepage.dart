@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gglug/Components/Screensize.dart';
 
 import 'Loginpage/Login.dart';
 
@@ -28,14 +29,17 @@ class _MyHomePageState extends State<MyHomePage> {
 
   AppBar _appBar() {
     return AppBar(
-     // elevation: 0.0,
+      // elevation: 0.0,
       leading: IconButton(
-        icon: Icon(Icons.notifications,),
+        icon: Icon(
+          Icons.notifications,
+        ),
         onPressed: () {
+          print(getProportionateScreenWidth(100.0));
+          print(getProportionateScreenheight(100.0));
         },
       ),
-      title: 
-      Center(
+      title: Center(
         child: Text("GITAM-GLUG"),
       ),
       actions: [
