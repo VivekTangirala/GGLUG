@@ -22,12 +22,8 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 
-  SafeArea _body() {
-    return SafeArea(
-      child: Container(
-        child: LoginPage(),
-      ),
-    );
+  Widget _body() {
+    return LoginPage();
   }
 
   AppBar _appBar() {

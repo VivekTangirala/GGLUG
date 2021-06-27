@@ -18,6 +18,4 @@ class MyApp extends StatelessWidget {
       home:_login==true? MyHomePage():LoginPage()
     );
   }
-}
-
-
+} //end
