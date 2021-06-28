@@ -1,7 +1,24 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:gglug/Homepage.dart';
+import 'package:gglug/Loginpage/Login.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 // import 'package:gglug/Loginpage/Login.dart';
+
+setlogintrue() async {
+  SharedPreferences _sharedPreferences = await SharedPreferences.getInstance();
+  _sharedPreferences.setBool('visited', true);
+}
+
+setloginfalse() async {
+  SharedPreferences _sharedPreferences = await SharedPreferences.getInstance();
+  _sharedPreferences.setBool('visited', false);
+}
+
+getlogin() async {
+  SharedPreferences _sharedPreferences = await SharedPreferences.getInstance();
+  return _sharedPreferences.getBool('visited');
+}
 
 class SplashScreen extends StatefulWidget {
   @override
@@ -9,13 +26,30 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
+  var visited;
+  getlogin() async {
+    visited = await getlogin();
+  }
+
   @override
   void initState() {
     super.initState();
-    Timer(
-        Duration(seconds: 5),
-        () => Navigator.of(context).pushReplacement(MaterialPageRoute(
-            builder: (BuildContext context) => MyHomePage())));
+    getlogin();
+    Timer(Duration(seconds: 1), () {
+      if (visited == true) {
+        Navigator.of(context).pushReplacement(
+          MaterialPageRoute(
+            builder: (BuildContext context) => MyHomePage(),
+          ),
+        );
+      } else {
+        Navigator.of(context).pushReplacement(
+          MaterialPageRoute(
+            builder: (BuildContext context) => LoginPage(),
+          ),
+        );
+      }
+    });
   }
 
   @override

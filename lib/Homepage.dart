@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gglug/Components/Screensize.dart';
+import 'package:gglug/SplashScreen.dart';
 
 import 'Loginpage/Login.dart';
 
@@ -24,7 +25,23 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   Widget _body() {
-    return LoginPage();
+    return Container(
+      child: Center(
+        child: TextButton(
+          onPressed: () {
+            setloginfalse();
+            Navigator.of(context).pushReplacement(
+              MaterialPageRoute(
+                builder: (BuildContext context) {
+                  return LoginPage();
+                },
+              ),
+            );
+          },
+          child: Text("Click here to logout"),
+        ),
+      ),
+    );
   }
 
   AppBar _appBar() {
@@ -35,8 +52,9 @@ class _MyHomePageState extends State<MyHomePage> {
           Icons.notifications,
         ),
         onPressed: () {
-          print(getProportionateScreenWidth(100.0));
-          print(getProportionateScreenheight(100.0));
+          print("bell");
+          getProportionateScreenWidth(100.0);
+          getProportionateScreenHeight(100.0);
         },
       ),
       title: Center(
