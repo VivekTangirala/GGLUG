@@ -23,10 +23,60 @@ class _MyHomePageState extends State<MyHomePage> {
 
   SafeArea _body() {
     return SafeArea(
-      child: Container(
-        child: LoginPage(),
-      ),
-    );
+      child: Padding(
+        padding: EdgeInsets.all(16.0),
+        child: Column(
+          childern: <Widget>[
+            Container(
+              height: 64,
+              margin: EdgeInsets.only(bottom: 20),
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  CircleAvatar(
+                   radius:32,
+                   backgroundImage: NetworkImage('Glug_logo.jpg'),
+                  )
+                  ,SizedBox(width: 16),
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                     Text('GLUG'),
+                     Text('69')
+                    ],
+                  )
+                ],
+              ),  
+            )
+            Expanded,(
+              child:GridView.builder(
+                mainAxisSpacing: 10,
+                crossAxisSpacing: 10,
+                crossAxisCount: 2
+                primary: false,
+                children: <Widget>[
+                  Card(
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(8)
+
+                    ),
+                    elevation: 4,
+                    child:Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget> [
+                        SvgPicture,network('Glug_logo.jpg', height:128,),
+                        Text('Members')
+                      ],
+                    )
+                  )
+                ]
+              )
+            )  
+          ],       
+        ),
+      ),  
+    ); 
   }
 
   AppBar _appBar() {
