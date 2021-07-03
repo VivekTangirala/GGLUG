@@ -46,27 +46,23 @@ class _MyHomePageState extends State<MyHomePage> {
                 ],
               ),
             ),
-            Expanded(
-              child:GridView.count(
-                mainAxisSpacing:10,
-                crossAxisSpacing:10,
-                primary: false,
-                crossAxisCount: 3,
-                children:<Widget>[
-                  Card(
-                    shape:RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(8)
-                    ),	
-                    elevation:4,
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: <Widget>[
-                        
-                        Text('Members')
-                      ],
-                    ),
+            Container(
+              child:GridView.builder(
+                itemCount: 6,
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
+                itemBuilder: (BuildContext context, int index) => Card(
+                  shape:RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(8)
+                  ),	
+                  elevation:4,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      Image(image: AssetImage('assets/Glug_logo.jpg'),),
+                      Text('Members')
+                    ],
                   ),
-                ]
+                ),
               ),
             ),
           ],
@@ -74,6 +70,9 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
     );
   }
+
+
+
 
   AppBar _appBar() {
     return AppBar(
