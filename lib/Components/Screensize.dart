@@ -22,7 +22,7 @@
 //   print(screenwidth);
 //   return ((inputwidth / 392.72) * screenwidth);
 // }
-import 'package:flutter/material.dart';
+import '../Components/Fileexplorer.dart';
 
 class SizeConfig {
   static double screenWidth = 0;

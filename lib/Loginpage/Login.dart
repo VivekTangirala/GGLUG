@@ -1,6 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:gglug/Homepage.dart';
-import 'package:gglug/SplashScreen.dart';
+import '../Components/Fileexplorer.dart';
 
 List<String> _username = ["Vivek", "Shankar", "Ruthwik", "Harikalyan"];
 List<String> _password = ["Vivek", "Shankar", "Ruthwik", "Harikalyan"];
@@ -18,7 +16,6 @@ class _LoginPageState extends State<LoginPage> {
   late String email, password;
   @override
   void dispose() {
-    // TODO: implement dispose
     super.dispose();
     _emailcontroller.dispose();
     _passwordcontroller.dispose();
@@ -175,7 +172,6 @@ class _LoginPageState extends State<LoginPage> {
   }
 
   Widget _buildLoginButton() {
-    var e, p;
     return InkWell(
       onTap: () async {
         print("Pressed");
@@ -257,10 +253,9 @@ class _LoginPageState extends State<LoginPage> {
       mainAxisAlignment: MainAxisAlignment.end,
       crossAxisAlignment: CrossAxisAlignment.end,
       children: <Widget>[
-        FlatButton(
+        TextButton(
           onPressed: () {},
           child: Text("Forgot Password?"),
-          color: Colors.grey[300],
         ),
       ],
     );
