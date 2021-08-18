@@ -55,3 +55,9 @@ getProportionateScreenWidth(double inputWidth) {
   print(SizeConfig.screenHeight);
   return ((inputWidth / 531.42) * screenWidth);
 }
+double getScrenHeight(){
+  return SizeConfig.screenHeight;
+}
+double getScreenWidth(){
+  return SizeConfig.screenWidth;
+}

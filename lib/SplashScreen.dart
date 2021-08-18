@@ -27,14 +27,14 @@ class SplashScreen extends StatefulWidget {
 
 class _SplashScreenState extends State<SplashScreen> {
   var visited;
-  getlogin() async {
+  _getlogin() async {
     visited = await getlogin();
   }
 
   @override
   void initState() {
     super.initState();
-    getlogin();
+    _getlogin();
     Timer(Duration(seconds: 1), () {
       if (visited == true) {
         Navigator.of(context).pushReplacement(

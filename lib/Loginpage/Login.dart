@@ -66,7 +66,7 @@ class _LoginPageState extends State<LoginPage> {
           borderRadius: BorderRadius.only(
             bottomLeft: Radius.circular(MediaQuery.of(context).size.width / 5),
             bottomRight: Radius.circular(MediaQuery.of(context).size.width / 5),
-          ),
+          ), 
         ),
       ),
     );
@@ -192,8 +192,8 @@ class _LoginPageState extends State<LoginPage> {
               );
               break;
             } else {
-              showDialog(
-                  context: context,
+             showDialog(
+                context:  context,
                   builder: (BuildContext context) {
                     return AlertDialog(
                       title: Text("Incorrect Password"),
@@ -257,10 +257,9 @@ class _LoginPageState extends State<LoginPage> {
       mainAxisAlignment: MainAxisAlignment.end,
       crossAxisAlignment: CrossAxisAlignment.end,
       children: <Widget>[
-        FlatButton(
+        TextButton(
           onPressed: () {},
           child: Text("Forgot Password?"),
-          color: Colors.grey[300],
         ),
       ],
     );
