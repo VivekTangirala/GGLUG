@@ -1,8 +1,7 @@
-import 'dart:async';
-import 'package:flutter/material.dart';
 import 'package:gglug/Homepage.dart';
-import 'package:gglug/Loginpage/Login.dart';
-import 'package:shared_preferences/shared_preferences.dart';
+
+import '../Components/Fileexplorer.dart';
+import 'package:flutter/material.dart';
 // import 'package:gglug/Loginpage/Login.dart';
 
 setlogintrue() async {
@@ -39,7 +38,7 @@ class _SplashScreenState extends State<SplashScreen> {
       if (visited == true) {
         Navigator.of(context).pushReplacement(
           MaterialPageRoute(
-            builder: (BuildContext context) => MyHomePage(),
+            builder: (BuildContext context) => HomePage(),
           ),
         );
       } else {

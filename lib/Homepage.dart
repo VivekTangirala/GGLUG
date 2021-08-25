@@ -1,132 +1,245 @@
-import 'dart:html';
-import 'package:flutter_svg/flutter_svg.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:gglug/Loginpage/Login.dart';
-import 'package:gglug/components/Screensize.dart';
+import 'package:gglug/About.dart';
 
-List<String> l1 = [
-  'App development',
-  'App development',
-  'App development',
-  'Web development',
-];
+import 'package:gglug/Members.dart';
+import 'package:gglug/profile.dart';
+import 'package:google_fonts/google_fonts.dart';
 
-class MyHomePage extends StatefulWidget {
+
+class HomePage extends StatefulWidget {
   @override
-  State<StatefulWidget> createState() {
-    return _MenuDashboardPageState();
-  }
+  _HomePageState createState() => _HomePageState();
 }
 
-class _MenuDashboardPageState extends State<MyHomePage> {
-  bool isCollapsed = true;
- late double screenWidth, screenHeight;
-  final Duration duration = const Duration(milliseconds: 400);
+
+class _HomePageState extends State<HomePage> {
+  
+
+  @override
+  void initState() {
+    super.initState();
+  }
+  bool menuOpen = false;
+  double tranx = 0, trany=0, scale=1.0;
+  List<String> l1 = [
+    'Assets/Images/members1.png',
+    'Assets/Images/linux.jpg',
+    'Assets/Images/img1.jpg',
+    'Assets/Images/Glug_logo.jpg',
+    'Assets/Images/Burgericon.png',
+    'Assets/Images/members.png',
+    
+  ];
+  List<String> l2 = [
+     
+    'Members',
+    'Projects',
+    'Events',
+    'About',
+    'data',
+    'data',
+    
+  ];
   @override
   Widget build(BuildContext context) {
-    var size = MediaQuery.of(context).size;
-    screenHeight = size.height;
-    screenWidth = size.width;
     return Scaffold(
       backgroundColor: Colors.white,
-      body:
-          //menu(context),
-          dashboard(context),
-        
       
-    );
-  }
-  Widget _body(){
-    return Container(child:Text(""));
-  }
-
-
-  Widget menu(context) {
-    return Padding(
-      padding: const EdgeInsets.only(left: 16.0),
-      child: Align(
-        alignment: Alignment.centerLeft,
+      drawer: Drawer(
+        
         child: Column(
-          mainAxisSize: MainAxisSize.min,
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          crossAxisAlignment: CrossAxisAlignment.start,
+          
           children: <Widget>[
-            Text("data", style: TextStyle(color: Colors.white, fontSize: 22)),
-            SizedBox(height: 10),
-            Text("about", style: TextStyle(color: Colors.white, fontSize: 22)),
-            SizedBox(height: 10),
-            Text("profile",
-                style: TextStyle(color: Colors.white, fontSize: 22)),
-            SizedBox(height: 10),
-            Text("data", style: TextStyle(color: Colors.white, fontSize: 22)),
-            SizedBox(height: 10),
+            
+            Container(
+              width: double.infinity,
+              padding: EdgeInsets.all(20),
+              color: Colors.white,
+                child: Column(
+                  children:<Widget> [
+                    Container(
+                      height: 64,
+                      margin: EdgeInsets.only(bottom: 10),
+                        child: Row(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: <Widget>[
+                            CircleAvatar(
+                              radius: 32,
+                              backgroundImage: AssetImage('Assets/Images/Glug_logo.jpg')
+                            ),
+                            SizedBox(width: 16),
+                            Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: <Widget>[Text('GLUG')],
+                            )
+                          ],
+                        ),
+                      ),
+                  ]
+                ),
+              ),
+            ListTile(
+              leading: Icon(Icons.person),
+              title: Text(
+                'About',  
+              ),
+              onTap: (){
+                Navigator.push(context,CupertinoPageRoute(builder: (context)=> About(),
+                ),
+                );
+              }
+            ),
+            ListTile(
+              leading: Icon(Icons.settings),
+              title: Text(
+                'Settings',  
+              ),
+            ),
+            ListTile(
+              leading: Icon(Icons.add_alert_outlined),
+              title: Text(
+                'Notifications',  
+              ),
+            ),
+            ListTile(
+              leading: Icon(Icons.logout),
+              title: Text(
+                'Logout',  
+              ),
+            ),
           ],
         ),
       ),
+      appBar: _appBar(),
+      body: _body(),
+      
     );
   }
-
-  Widget dashboard(context) {
-    return Column(
-      children: [
-        AnimatedPositioned(
-          duration: duration,
-          top: isCollapsed ? 0 : 0.2 * screenHeight,
-          bottom: isCollapsed ? 0 : 0.2 * screenWidth,
-          left: isCollapsed ? 0 : 0.6 * screenWidth,
-          right: isCollapsed ? 0 : -0.4 * screenWidth,
-          child: Material(
-            animationDuration: duration,
-            borderRadius: BorderRadius.all(Radius.circular(40)),
-            elevation: 8,
-            color: Colors.grey[400],
+  SafeArea _body() {
+    var size = MediaQuery.of(context).size;
+    var ui;
+    return SafeArea(
+      child: Stack(
+        children: <Widget>[
+          Container(
+            height: MediaQuery.of(context).size.height * 2 / 3,
+            width: MediaQuery.of(context).size.width,
             child: Container(
-              padding: const EdgeInsets.only(left: 16, right: 16, top: 48),
-              child: Column(
-                children: <Widget>[
-                  Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      mainAxisSize: MainAxisSize.max,
-                      children: [
-                        InkWell(
-                            child: Icon(Icons.menu, color: Colors.white),
-                            onTap: () {
-                              setState(() {
-                                isCollapsed = !isCollapsed;
-                              });
-                            }),
-                        Text(
-                          "GLUG",
-                          style: TextStyle(fontSize: 24, color: Colors.white),
-                        ),
-                        Icon(Icons.settings, color: Colors.white),
-                      ]),
-                  Container(
-                    child: Expanded(
-                      child: GridView.builder(
-                        itemCount: l1.length,
-                        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                            crossAxisCount: 2,
-                            crossAxisSpacing: 8,
-                            mainAxisSpacing: 8),
-                        itemBuilder: (BuildContext context, int index) {
-                          return Card(
-                            shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(10)),
-                            elevation: 4,
-                            child: Image.asset(
-                              l1[index],
-                              fit: BoxFit.fill,
+              decoration: BoxDecoration(
+                color: Colors.blue.shade400,
+                  borderRadius: BorderRadius.only(
+                    bottomLeft: Radius.circular(MediaQuery.of(context).size.width / 5),
+                    bottomRight: Radius.circular(MediaQuery.of(context).size.width / 5),
+                  ),      
+                ),
+              ),
+            ),         
+
+          Padding(
+            padding:  EdgeInsets.all(20.0),
+            child: Column(
+              children: <Widget>[
+                Container(
+                  height: 50,
+                  margin: EdgeInsets.only(bottom: 5),
+                  color: Colors.blue.shade400,
+                  child: Text('GNU Linux Users Group',
+                     textAlign: TextAlign.center,
+                        overflow: TextOverflow.ellipsis,
+                     style: TextStyle(fontStyle: FontStyle.italic,fontSize: 30,color: Colors.white),
+                      
+                  ),
+                ),  
+                  
+                Expanded(
+                  child: GridView.builder(
+                    itemCount: l1.length,
+                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 2,
+                      crossAxisSpacing: 12,
+                      mainAxisSpacing: 12
+                    ),
+
+                    itemBuilder: (BuildContext context, int index){
+                      return new InkWell(
+                      onTap: () {
+                        if (index == 0) {
+                          Navigator.push(
+                            context,
+                            CupertinoPageRoute(
+                              builder: (context) => Members(),
                             ),
                           );
-                        },
+                        }
+                        if (index == 1) {
+                          Navigator.push(
+                            context,
+                            CupertinoPageRoute(
+                              builder: (context) =>
+                            ),
+                          );
+                        }
+
+                      },
+                        child: Card(
+                          color: Colors.transparent,
+                          elevation: 0,
+                          child: Container(
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(20),
+                              image: DecorationImage(
+                                image: AssetImage(l1[index],),
+                                fit: BoxFit.cover, 
+                              ),
+                              
+                            ),
+                             child: Column(
+                               mainAxisAlignment: MainAxisAlignment.end,
+                               
+                               children:[
+                               Text(
+                               l2[index],
+                               style: GoogleFonts.openSans(
+                                  textStyle: TextStyle(
+                                    color: Colors.black,
+                                    fontSize: 20,
+                                    fontWeight: FontWeight.w600,
+                                    fontStyle: FontStyle.italic,
+
+
+                                ),
+                              ),
+                            ),],
+                          ),
+                        ),
                       ),
-                    ),
+                      );
+                    }    
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
           ),
+        ],
+      ),
+    );  
+  }
+
+  AppBar _appBar() {
+    
+    return AppBar(
+      backgroundColor: Colors.blue.shade400,
+      title: Center(
+        child: Text(""),
+      ),
+      actions: [
+        IconButton(
+          onPressed: () {Navigator.push(context,CupertinoPageRoute(builder: (context)=> profile(),
+                ),
+                );},
+          icon: Icon(Icons.person),
         ),
       ],
     );

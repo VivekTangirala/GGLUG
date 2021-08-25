@@ -1,7 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:gglug/Homepage.dart';
-import 'package:gglug/Loginpage/Login.dart';
-import 'package:gglug/SplashScreen.dart';
+import '../Components/Fileexplorer.dart';
 
 void main() {
   runApp(MyApp());

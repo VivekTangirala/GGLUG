@@ -28,6 +28,8 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
   shared_preferences: ^2.0.6
+  http: ^0.13.3
+  google_fonts: ^2.1.0
 
 
 dev_dependencies:
@@ -51,7 +53,16 @@ flutter:
     - Assets/Images/Glug_logo.jpg
     - Assets/Images/Burgericon.png
     - Assets/Images/header.png
-
+    - Assets/Images/Group2.jpg
+    - Assets/Images/img1.jpg
+    - Assets/Images/linux.jpg
+    - Assets/Images/members1.png
+    - Assets/Images/vivek.jpg
+    - Assets/Images/music.webp
+    - Assets/Images/play.webp
+    -  Assets/Images/wait.webp
+    -  Assets/Images/Ruthwik.webp
+    -  Assets/Images/linux.jpg
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
 

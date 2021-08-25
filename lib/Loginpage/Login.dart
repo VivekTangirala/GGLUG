@@ -1,6 +1,6 @@
-import 'package:flutter/material.dart';
 import 'package:gglug/Homepage.dart';
-import 'package:gglug/SplashScreen.dart';
+
+import '../Components/Fileexplorer.dart';
 
 List<String> _username = ["Vivek", "Shankar", "Ruthwik", "Harikalyan"];
 List<String> _password = ["Vivek", "Shankar", "Ruthwik", "Harikalyan"];
@@ -18,7 +18,6 @@ class _LoginPageState extends State<LoginPage> {
   late String email, password;
   @override
   void dispose() {
-    // TODO: implement dispose
     super.dispose();
     _emailcontroller.dispose();
     _passwordcontroller.dispose();
@@ -28,12 +27,12 @@ class _LoginPageState extends State<LoginPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: true,
-      backgroundColor: Colors.grey[300],
+      backgroundColor: Colors.white,
       body: SingleChildScrollView(
         child: SafeArea(
-            child: Container(
-          height: MediaQuery.of(context).size.height,
-          width: MediaQuery.of(context).size.width,
+          child: Container(
+          height: MediaQuery.of(context).size.height ,
+          width: MediaQuery.of(context).size.width *1,
           child: Stack(
             children: [
               _backgroundlogo(),
@@ -58,8 +57,8 @@ class _LoginPageState extends State<LoginPage> {
 
   Widget _backgroundlogo() {
     return Container(
-      height: MediaQuery.of(context).size.height * 2 / 3,
-      width: MediaQuery.of(context).size.width,
+      height: MediaQuery.of(context).size.height ,
+      width: MediaQuery.of(context).size.width ,
       child: Container(
         decoration: BoxDecoration(
           color: Colors.deepOrange,
@@ -175,7 +174,6 @@ class _LoginPageState extends State<LoginPage> {
   }
 
   Widget _buildLoginButton() {
-    var e, p;
     return InkWell(
       onTap: () async {
         print("Pressed");
@@ -186,7 +184,7 @@ class _LoginPageState extends State<LoginPage> {
               Navigator.of(context).pushReplacement(
                 MaterialPageRoute(
                   builder: (BuildContext context) {
-                    return MyHomePage();
+                    return HomePage();
                   },
                 ),
               );
@@ -264,4 +262,7 @@ class _LoginPageState extends State<LoginPage> {
       ],
     );
   }
+}
+
+class MyHomePage {
 }
