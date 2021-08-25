@@ -177,7 +177,7 @@ class _HomePageState extends State<HomePage> {
                           Navigator.push(
                             context,
                             CupertinoPageRoute(
-                              builder: (context) =>
+                              builder: (context) =>Members()
                             ),
                           );
                         }
