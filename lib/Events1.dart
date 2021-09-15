@@ -1,15 +1,10 @@
+import 'package:flutter/material.dart';
 import 'package:gglug/Components/Fileexplorer.dart';
-
-class About extends StatelessWidget{
+class Events extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: AppBar(
-        backgroundColor: Color(0xFF40C4FF),
-        title: Text('About GLUG'),
-        centerTitle: true,
-      ),
       body: Column(
           
           children: <Widget>[

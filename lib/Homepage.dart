@@ -1,9 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:gglug/About.dart';
+import 'package:gglug/Components/Fileexplorer.dart';
 
 import 'package:gglug/Members.dart';
+import 'package:gglug/events.dart';
 import 'package:gglug/profile.dart';
+import 'package:gglug/projects.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 
@@ -27,8 +30,7 @@ class _HomePageState extends State<HomePage> {
     'Assets/Images/linux.jpg',
     'Assets/Images/img1.jpg',
     'Assets/Images/Glug_logo.jpg',
-    'Assets/Images/Burgericon.png',
-    'Assets/Images/members.png',
+    
     
   ];
   List<String> l2 = [
@@ -36,9 +38,8 @@ class _HomePageState extends State<HomePage> {
     'Members',
     'Projects',
     'Events',
-    'About',
     'data',
-    'data',
+    
     
   ];
   @override
@@ -102,12 +103,20 @@ class _HomePageState extends State<HomePage> {
               title: Text(
                 'Notifications',  
               ),
+              onTap: (){
+                
+              }
             ),
             ListTile(
               leading: Icon(Icons.logout),
               title: Text(
                 'Logout',  
               ),
+              onTap: (){
+                Navigator.push(context,CupertinoPageRoute(builder: (context)=> LoginPage(),
+                ),
+                );
+              }
             ),
           ],
         ),
@@ -118,8 +127,7 @@ class _HomePageState extends State<HomePage> {
     );
   }
   SafeArea _body() {
-    var size = MediaQuery.of(context).size;
-    var ui;
+    
     return SafeArea(
       child: Stack(
         children: <Widget>[
@@ -128,7 +136,7 @@ class _HomePageState extends State<HomePage> {
             width: MediaQuery.of(context).size.width,
             child: Container(
               decoration: BoxDecoration(
-                color: Colors.blue.shade400,
+                color: Color(0xFF40C4FF),
                   borderRadius: BorderRadius.only(
                     bottomLeft: Radius.circular(MediaQuery.of(context).size.width / 5),
                     bottomRight: Radius.circular(MediaQuery.of(context).size.width / 5),
@@ -144,7 +152,7 @@ class _HomePageState extends State<HomePage> {
                 Container(
                   height: 50,
                   margin: EdgeInsets.only(bottom: 5),
-                  color: Colors.blue.shade400,
+                  color: Color(0xFF40C4FF),
                   child: Text('GNU Linux Users Group',
                      textAlign: TextAlign.center,
                         overflow: TextOverflow.ellipsis,
@@ -177,10 +185,19 @@ class _HomePageState extends State<HomePage> {
                           Navigator.push(
                             context,
                             CupertinoPageRoute(
-                              builder: (context) =>
+                              builder: (context) => Projects(),
                             ),
                           );
                         }
+                        if (index == 2) {
+                          Navigator.push(
+                            context,
+                            CupertinoPageRoute(
+                              builder: (context) => Events(),
+                            ),
+                          );
+                        }
+                        
 
                       },
                         child: Card(
@@ -230,7 +247,7 @@ class _HomePageState extends State<HomePage> {
   AppBar _appBar() {
     
     return AppBar(
-      backgroundColor: Colors.blue.shade400,
+      backgroundColor: Color(0xFF40C4FF),
       title: Center(
         child: Text(""),
       ),

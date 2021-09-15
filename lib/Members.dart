@@ -56,7 +56,6 @@ class Members extends StatelessWidget {
                 ),
                 SizedBox(
                   width: 15.0,
-                 
                 ),
                 Text(
                   "MEMBERS",
@@ -74,7 +73,7 @@ class Members extends StatelessWidget {
             bottom: TabBar(tabs: [
               Tab(
                 child: Text(
-                  "Current",
+                  "Current Members",
                   style: GoogleFonts.openSans(
                     textStyle: TextStyle(
                       color: Colors.black,
